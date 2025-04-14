@@ -23,7 +23,7 @@ and many more, including code architecture and reusability
 ## Tech Stack
 
 - **Frontend**: Next.js, TypeScript, Tailwind CSS
-- **Backend**: Firebase
+- **Backend**: Firebase, Vapi
 - **Deployment**: Vercel
 
 ## Getting Started
