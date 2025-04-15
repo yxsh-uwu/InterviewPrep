@@ -95,15 +95,15 @@ export async function getFeedbackByInterviewId(params: GetFeedbackByInterviewIdP
     const feedback = await db
         .collection('feedback')
         .where('interviewId', '==', interviewId)
-        .where('userId', '!=', userId)
+        .where('userId', '==', userId) // Adjusted to include feedback created by the same user
         .limit(1)
         .get();
-    
-    if(feedback.empty){
+
+    if (feedback.empty) {
         return null;
     }
-    const feedbackDoc=feedback.docs[0];
+    const feedbackDoc = feedback.docs[0];
     return {
-        id:feedbackDoc.id, ...feedbackDoc.data(),
+        id: feedbackDoc.id, ...feedbackDoc.data(),
     } as Feedback;
 }

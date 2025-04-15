@@ -18,7 +18,13 @@ const Feedback = async ({params}:RouteParams) => {
     userId:user?.id!,
   });
 
-  console.log(feedback);
+  if (!feedback) {
+    return (
+      <section className='selection-feedback'>
+        <p>No feedback available for this interview.</p>
+      </section>
+    );
+  }
 
   return (
     <section className='selection-feedback'>
